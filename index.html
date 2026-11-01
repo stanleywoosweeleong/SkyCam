@@ -29,7 +29,8 @@ button{cursor:pointer;touch-action:manipulation}
 main{max-width:540px;margin:0 auto;padding:env(safe-area-inset-top) .75rem calc(env(safe-area-inset-bottom) + .6rem)}
 .sbar{position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top);background:#000;z-index:20}
 section.view{display:none}section.view.on{display:block}
-section.view.fit.on{display:flex;flex-direction:column;height:calc(100vh - var(--chrome,0px));height:var(--avail,calc(100dvh - var(--chrome,0px)));min-height:20rem}
+/* Screen height comes from JS (--vh); the safe areas are subtracted here in CSS so late inset changes (iOS app) apply live */
+section.view.fit.on{display:flex;flex-direction:column;height:calc(var(--vh,100dvh) - env(safe-area-inset-top) - env(safe-area-inset-bottom) - .6rem);min-height:20rem;overflow:hidden}
 #vhProbe{position:fixed;top:0;bottom:0;left:0;width:0;visibility:hidden;pointer-events:none}
 .fit.on>*{flex:none}.fit.on>.grow{flex:1 1 0;min-height:9rem}
 .vfwrap{display:flex;justify-content:center;align-items:center;margin:0 -.75rem;background:#000}
@@ -318,7 +319,7 @@ h2{font-size:1rem;font-weight:800;margin:.85rem 0 .35rem}
 
 <script>
 'use strict';
-const APP_VERSION='1.0.0';
+const APP_VERSION='1.0.1';
 
 /* ============ i18n ============ */
 const T={
@@ -1099,9 +1100,8 @@ $('delBtn').onclick=async()=>{if(!curItem||!confirm(t('confirmDel')))return;awai
 
 /* ============ fit to screen ============ */
 function fitLayout(){
-  const m=getComputedStyle(document.querySelector('main')),chrome=Math.ceil(parseFloat(m.paddingTop)+parseFloat(m.paddingBottom));
   const H=Math.max($('vhProbe').offsetHeight,innerHeight,document.documentElement.clientHeight);
-  const r=document.documentElement.style;r.setProperty('--chrome',chrome+'px');r.setProperty('--avail',Math.floor(H-chrome)+'px');
+  document.documentElement.style.setProperty('--vh',Math.floor(H)+'px');
 }
 function previewDims(){const r=SW/SH,vw=$('vf').clientWidth||400,dpr=Math.min(window.devicePixelRatio||1,3);
   let w=Math.min(vw*dpr,SW),h=w/r;const c=1280/Math.max(w,h);if(c<1){w*=c;h*=c}return[even(w),even(h)]}
