@@ -292,7 +292,8 @@ h2{font-size:1rem;font-weight:800;margin:.85rem 0 .35rem}
     <div class="seg tog2" style="margin-top:.4rem"><button id="tLevel"></button><button id="tHist"></button><button id="tZebra"></button><button id="tKeep"></button></div>
     <p class="cfgdesc warn" id="lvWarn" hidden></p>
     <h2 data-i="camT"></h2>
-    <div class="seg tog2"><button id="tProt"></button><button id="tInf"></button></div>
+    <div class="seg tog2"><button id="tHdr" hidden></button><button id="tProt"></button><button id="tInf"></button></div>
+    <p class="cfgdesc" id="hdrD" data-i="hdrD" hidden></p>
     <p class="cfgdesc" data-i="protD"></p>
     <p class="cfgdesc" data-i="infD"></p>
     <h2 data-i="infoT"></h2>
@@ -330,6 +331,7 @@ shoot:'Shoot',shootT:'Exposure & drive',single:'Single',slowT:'Long exposure',sl
 ivRun:'Interval running · {n} shots',settings:'Settings',language:'Language',textSize:'Text size',shape:'Frame shape',compose:'Composition',levelT:'Horizon level',aid_hist:'Histogram',aid_zebra:'Highlight warning',keepT:'Keep filters after restart',
 camT:'Camera',protT:'Sky highlight protect',protD:'Sky highlight protect: with GND filters on, the camera exposes darker so bright clouds are not blown out, then the land is brightened back — the way a real glass filter works. Needs a browser with exposure control (most Android phones in Chrome); elsewhere the filters are applied digitally.',
 infT:'Infinity focus',infD:'Infinity focus: locks focus far away so the camera doesn\'t hunt on plain blue sky. Only where the browser allows manual focus.',infNo:'This browser can\'t lock focus — autofocus stays on',protOn:'protect',
+hdrT:'Native HDR capture',hdrD:'Native HDR capture: each shot takes three full-quality exposures (−2, 0, +2 EV), lines them up, merges them and applies your GND filters and look. The photo is saved to the Photos app. Long exposures still use the preview frames.',savedPhotos:'Saved to Photos',
 infoT:'Capture info',res:['Camera','Photo','Start the camera to see the resolution'],tipsT:'Sky photography tips',
 tips:['Put the GND line on the horizon. Hard suits flat sea horizons, Soft suits hills and trees, Reverse suits sunrise and sunset when the sky is brightest right at the horizon.','Sun off to one side? Add a second filter at an angle over the bright corner — filters stack.','Keep the highlight warning on and lower EV until the brightest cloud stops striping.','The Polariser slider works best on sky about 90° away from the sun.','Turn on the horizon level and a grid, and keep the horizon on a third line.','For streaky clouds: 15–30 s long exposure with the 3 s self-timer, phone on a tripod.','Use Interval (for example every 5 s) to collect frames for a cloud time-lapse.'],
 album:'Album',back:'Back',saved:'Saved to album',noItems:'The album is empty. Take a photo of the sky.',storageNote:'Photos live only in this phone\'s browser. Use "Save / Share" to keep the good ones in your photo library.',
@@ -346,6 +348,7 @@ shoot:'拍摄',shootT:'曝光与连拍',single:'单张',slowT:'长曝光',slowD:
 ivRun:'间隔拍摄中 · 已拍 {n} 张',settings:'设置',language:'语言',textSize:'字体大小',shape:'画幅',compose:'构图',levelT:'水平仪',aid_hist:'直方图',aid_zebra:'高光警告',keepT:'重启后保留渐变镜',
 camT:'相机',protT:'天空高光保护',protD:'天空高光保护：开启渐变镜时，相机先压暗曝光保住亮云层，再把地面提亮回来——和真正的玻璃滤镜一样。需要浏览器支持曝光控制（多数安卓手机的 Chrome）；其他浏览器则以数码方式套用滤镜。',
 infT:'无限远对焦',infD:'无限远对焦：把焦点锁在远处，相机不会在纯蓝天上来回找焦。仅限允许手动对焦的浏览器。',infNo:'此浏览器无法锁定对焦，仍为自动对焦',protOn:'保护',
+hdrT:'原生 HDR 拍摄',hdrD:'原生 HDR 拍摄：每次拍摄三张全画质曝光（−2、0、+2 EV），自动对齐、合成，再套用你的渐变镜和风格，照片存进“照片” App。长曝光仍使用预览画面。',savedPhotos:'已存入“照片”',
 infoT:'画面信息',res:['相机画面','照片','开启相机后显示分辨率'],tipsT:'拍天空小技巧',
 tips:['把渐变线放在地平线上。平直海平线用硬渐变，山和树用软渐变，日出日落天空最亮处贴着地平线时用反向。','太阳在一侧？再加一片斜放的渐变镜压住亮角——多片可以叠加。','开启高光警告，降低 EV 直到最亮的云不再出现条纹。','偏振滑块对与太阳成 90° 的天空效果最好。','开启水平仪和网格，把地平线放在三分线上。','拍云的拉丝：长曝光 15–30 秒，配合 3 秒自拍定时，手机上三脚架。','用间隔拍摄（例如每 5 秒）收集云的延时素材。'],
 album:'相册',back:'返回',saved:'已存入相册',noItems:'相册是空的。拍一张天空吧。',storageNote:'照片只存在这台手机的浏览器里。好照片请按“保存 / 分享”存到手机相册。',
@@ -362,6 +365,7 @@ shoot:'拍攝',shootT:'曝光與連拍',single:'單張',slowT:'長曝光',slowD:
 ivRun:'間隔拍攝中 · 已拍 {n} 張',settings:'設定',language:'語言',textSize:'字體大小',shape:'畫幅',compose:'構圖',levelT:'水平儀',aid_hist:'直方圖',aid_zebra:'高光警告',keepT:'重啟後保留漸變鏡',
 camT:'相機',protT:'天空高光保護',protD:'天空高光保護：開啟漸變鏡時，相機先壓暗曝光保住亮雲層，再把地面提亮回來——和真正的玻璃濾鏡一樣。需要瀏覽器支援曝光控制（多數 Android 手機的 Chrome）；其他瀏覽器則以數碼方式套用濾鏡。',
 infT:'無限遠對焦',infD:'無限遠對焦：把焦點鎖在遠處，相機不會在純藍天上來回找焦。僅限允許手動對焦的瀏覽器。',infNo:'此瀏覽器無法鎖定對焦，仍為自動對焦',protOn:'保護',
+hdrT:'原生 HDR 拍攝',hdrD:'原生 HDR 拍攝：每次拍攝三張全畫質曝光（−2、0、+2 EV），自動對齊、合成，再套用你的漸變鏡和風格，照片存進「照片」App。長曝光仍使用預覽畫面。',savedPhotos:'已存入「照片」',
 infoT:'畫面資訊',res:['相機畫面','照片','開啟相機後顯示解析度'],tipsT:'拍天空小技巧',
 tips:['把漸變線放在地平線上。平直海平線用硬漸變，山和樹用軟漸變，日出日落天空最亮處貼著地平線時用反向。','太陽在一側？再加一片斜放的漸變鏡壓住亮角——多片可以疊加。','開啟高光警告，降低 EV 直到最亮的雲不再出現條紋。','偏振滑桿對與太陽成 90° 的天空效果最好。','開啟水平儀和網格，把地平線放在三分線上。','拍雲的拉絲：長曝光 15–30 秒，配合 3 秒自拍定時，手機上三腳架。','用間隔拍攝（例如每 5 秒）收集雲的縮時素材。'],
 album:'相簿',back:'返回',saved:'已存入相簿',noItems:'相簿是空的。拍一張天空吧。',storageNote:'照片只存在這台手機的瀏覽器裡。好照片請按「保存 / 分享」存到手機相簿。',
@@ -378,6 +382,7 @@ shoot:'Rakam',shootT:'Dedahan & pemanduan',single:'Tunggal',slowT:'Dedahan panja
 ivRun:'Selang masa berjalan · {n} foto',settings:'Tetapan',language:'Bahasa',textSize:'Saiz teks',shape:'Bentuk',compose:'Komposisi',levelT:'Penyukat ufuk',aid_hist:'Histogram',aid_zebra:'Amaran sorotan',keepT:'Simpan penapis selepas mula semula',
 camT:'Kamera',protT:'Lindungi sorotan langit',protD:'Lindungi sorotan langit: apabila penapis GND dihidupkan, kamera mendedah lebih gelap supaya awan terang tidak terlebih dedah, kemudian daratan dicerahkan semula — seperti penapis kaca sebenar. Perlukan pelayar dengan kawalan dedahan (kebanyakan telefon Android dalam Chrome); di tempat lain penapis digunakan secara digital.',
 infT:'Fokus infiniti',infD:'Fokus infiniti: kunci fokus jauh supaya kamera tidak mencari-cari fokus pada langit biru kosong. Hanya jika pelayar membenarkan fokus manual.',infNo:'Pelayar ini tidak boleh kunci fokus — autofokus kekal',protOn:'lindung',
+hdrT:'Tangkapan HDR asli',hdrD:'Tangkapan HDR asli: setiap foto mengambil tiga dedahan berkualiti penuh (−2, 0, +2 EV), menjajarkan dan menggabungkannya, kemudian menggunakan penapis GND dan gaya anda. Foto disimpan ke aplikasi Foto. Dedahan panjang masih menggunakan bingkai pratonton.',savedPhotos:'Disimpan ke Foto',
 infoT:'Maklumat rakaman',res:['Kamera','Foto','Buka kamera untuk melihat resolusi'],tipsT:'Petua fotografi langit',
 tips:['Letakkan garisan GND pada ufuk. Keras untuk ufuk laut yang rata, Lembut untuk bukit dan pokok, Songsang untuk matahari terbit dan terbenam apabila langit paling terang di ufuk.','Matahari di sebelah? Tambah penapis kedua secara condong di atas sudut yang terang — penapis boleh bertindan.','Hidupkan amaran sorotan dan turunkan EV sehingga awan paling terang tidak lagi berjalur.','Gelangsar Polarisasi paling berkesan pada langit kira-kira 90° dari matahari.','Hidupkan penyukat ufuk dan grid, letakkan ufuk pada garisan satu pertiga.','Untuk awan berjalur: dedahan panjang 15–30 s dengan pemasa 3 s, telefon di atas tripod.','Guna Selang masa (contohnya setiap 5 s) untuk mengumpul bingkai selang masa awan.'],
 album:'Album',back:'Kembali',saved:'Disimpan ke album',noItems:'Album kosong. Ambil foto langit.',storageNote:'Foto hanya disimpan dalam pelayar telefon ini. Tekan "Simpan / Kongsi" untuk menyimpan yang bagus ke galeri.',
@@ -396,7 +401,12 @@ const fitRatio=(w0,h0,r)=>w0/h0>r?[h0*r,h0]:[w0,w0/r];
 const dimsFromShort=(q,r)=>r<1?[even(q),even(q/r)]:[even(q*r),even(q)];
 const ADJ_KEYS=['temp','tint','con','cla','haze','vib','cpl','sh','hi'];
 const MAXG=5;
-const S=Object.assign({lang:null,fs:1,ratio:'3:4',grid:'g3',level:false,hist:true,zebra:true,keep:true,inf:false,protect:true,look:'natural',adj:{},gnd:[],slow:0,timer:0,iv:0,lens:'1'},
+// Native iOS shell (ios/ in this repo): same page inside WKWebView, plus a bridge to the native camera for full-quality HDR captures.
+const NATIVE=!!(window.webkit&&window.webkit.messageHandlers&&window.webkit.messageHandlers.skycam);
+const NB={n:0,p:{}};
+window.__skycamReply=(id,res)=>{const p=NB.p[id];if(p){delete NB.p[id];p(res)}};
+const native=(cmd,args)=>new Promise(res=>{const id=++NB.n;NB.p[id]=res;window.webkit.messageHandlers.skycam.postMessage({id,cmd,...args})});
+const S=Object.assign({lang:null,fs:1,ratio:'3:4',grid:'g3',level:false,hist:true,zebra:true,keep:true,inf:false,protect:true,hdr:true,look:'natural',adj:{},gnd:[],slow:0,timer:0,iv:0,lens:'1'},
   (()=>{try{return JSON.parse(localStorage.getItem('skycam.settings')||'{}')}catch(e){return{}}})());
 function saveS(){try{localStorage.setItem('skycam.settings',JSON.stringify(S))}catch(e){}}
 const t=k=>(T[S.lang||'en'][k]??T.en[k]);
@@ -665,7 +675,7 @@ async function startCam(){if(cd)cd.stop(false);if(starting){startAgain=true;retu
   try{do{startAgain=false;await openCam()}while(startAgain)}finally{starting=false;sb.disabled=false;lbl.textContent=t('start');$('shutter').disabled=!camOn||busy}}
 async function openCam(){
   if(!glOK){showErr(t('errNoGL'));return}
-  if(!window.isSecureContext||!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){showErr(t('errInsecure'));return}
+  if(!window.isSecureContext||!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){if(NATIVE)native('insecure',{});showErr(t('errInsecure'));return}
   AUD.ensure();
   if(stream)stream.getTracks().forEach(tr=>tr.stop());if(aeLock)setAeLock(false,true);
   const vc={...FEED};
@@ -750,6 +760,7 @@ async function takeStill(){
   const d=new Date();
   $('vfDev').hidden=false;await new Promise(z=>requestAnimationFrame(()=>setTimeout(z,0)));
   const slow=(S.slow||0)>0;
+  if(NATIVE&&S.hdr&&!slow){try{await nativeCapture(d)}finally{$('vfDev').hidden=true}return}
   if(slow){lockUI(true);$('shutter').disabled=true;await slowExposure();AUD.click()}
   $('vfDev').querySelector('span').textContent=t('developing');
   try{
@@ -762,6 +773,20 @@ async function takeStill(){
     if(!ivRun)toast(t('saved'));refreshAlbumBtn();
   }finally{$('vfDev').hidden=true;$('vfDev').querySelector('span').textContent=t('developing');if(slow){ACC.n=0;lockUI(false)}$('shutter').disabled=!camOn}
 }
+// Native HDR shot: hand the sensor to the native camera (bracketed full-quality frames, merged + graded with the same
+// GND/look numbers), keep its preview copy in the album, then restart the live preview.
+const b64Blob=(b64,type)=>{const s=atob(b64),u=new Uint8Array(s.length);for(let i=0;i<s.length;i++)u[i]=s.charCodeAt(i);return new Blob([u],{type})};
+async function nativeCapture(d){
+  const L=lookValues();camOn=false;if(stream)stream.getTracks().forEach(tr=>tr.stop());stream=null;video.srcObject=null;
+  let r;
+  try{r=await native('capture',{lens:S.lens,zoom:S.lens==='2'?2:1,ratio:ratioR(),ev:evK/3,gnd:S.gnd,look:L,wb:wbFor(L),cla:L.cla})}
+  finally{startCam()}
+  if(!r||!r.ok)throw new Error(r&&r.error||'capture failed');
+  const blob=b64Blob(r.preview,'image/jpeg'),bmp=await createImageBitmap(blob),thumb=await makeThumb(bmp);if(bmp.close)bmp.close();
+  await DB.put({id:'p'+Date.now(),type:'photo',created:d.getTime(),blob,mime:'image/jpeg',thumb,res:r.width+'×'+r.height+(r.frames>1?' HDR':''),look:S.look,gnd:S.gnd.length,slow:0,ev:evText()});
+  if(!ivRun)toast(r.saved?t('savedPhotos'):t('saved'));refreshAlbumBtn();
+}
+const blobB64=blob=>new Promise(res=>{const fr=new FileReader();fr.onload=()=>res(String(fr.result).split(',')[1]);fr.readAsDataURL(blob)});
 function coverDraw(ctx,img,x,y,w,h){const ia=img.width/img.height,ta=w/h;let sw=img.width,sh=img.height,sx=0,sy=0;
   if(ia>ta){sw=img.height*ta;sx=(img.width-sw)/2}else{sh=img.width/ta;sy=(img.height-sh)/2}ctx.drawImage(img,sx,sy,sw,sh,x,y,w,h)}
 async function makeThumb(src){const c=document.createElement('canvas');c.width=240;c.height=320;coverDraw(c.getContext('2d'),src,0,0,240,320);return new Promise(r=>c.toBlob(r,'image/jpeg',.8))}
@@ -995,7 +1020,7 @@ function renderCfg(){
     b.onclick=()=>{S.grid=g;saveS();renderGrid();renderCfg()};gb.appendChild(b)});
   [...gb.children].forEach(b=>{b.classList.toggle('on',b.dataset.g===S.grid);if(b.dataset.g==='off')b.firstChild.textContent=t('off')});
   togBtn('tLevel',S.level,t('levelT'));togBtn('tHist',S.hist,t('aid_hist'));togBtn('tZebra',S.zebra,t('aid_zebra'));togBtn('tKeep',S.keep,t('keepT'));
-  togBtn('tProt',S.protect,t('protT'));togBtn('tInf',S.inf,t('infT'));
+  togBtn('tProt',S.protect,t('protT'));togBtn('tInf',S.inf,t('infT'));togBtn('tHdr',S.hdr,t('hdrT'));$('tHdr').hidden=$('hdrD').hidden=!NATIVE;
   document.querySelectorAll('#langOpts button').forEach(b=>b.classList.toggle('on',b.dataset.l===(S.lang||'en')));
   document.querySelectorAll('#fsOpts button').forEach(b=>b.classList.toggle('on',+b.dataset.fs===S.fs));
   const L=t('res');$('resInfo').textContent=srcW?`${L[0]} ${srcW}×${srcH} · ${L[1]} ${SW}×${SH}`:L[2];
@@ -1003,6 +1028,7 @@ function renderCfg(){
 }
 $('tHist').onclick=()=>{S.hist=!S.hist;saveS();$('hist').hidden=!S.hist;renderCfg()};
 $('tZebra').onclick=()=>{S.zebra=!S.zebra;saveS();renderCfg()};
+$('tHdr').onclick=()=>{S.hdr=!S.hdr;saveS();renderCfg()};
 $('tKeep').onclick=()=>{S.keep=!S.keep;saveS();renderCfg()};
 $('tProt').onclick=()=>{S.protect=!S.protect;saveS();applyEV();renderCfg()};
 $('tInf').onclick=async()=>{S.inf=!S.inf;saveS();renderCfg();if(camOn){const ok=await applyFocus();if(S.inf&&!ok)toast(t('infNo'),3500)}};
@@ -1062,6 +1088,7 @@ function openItem(it){
 }
 function fileName(it){const d=new Date(it.created);return`${d.getFullYear()}-${pad2(d.getMonth()+1)}${pad2(d.getDate())}_${pad2(d.getHours())}${pad2(d.getMinutes())}${pad2(d.getSeconds())}_skycam.jpg`}
 async function saveOrShare(blob,name){
+  if(NATIVE){const r=await native('savePhoto',{data:await blobB64(blob)});toast(r&&r.ok?t('savedPhotos'):(r&&r.error||'error'));return}
   const file=new File([blob],name,{type:blob.type}),touch=matchMedia('(pointer:coarse)').matches;
   if(touch&&navigator.canShare&&navigator.canShare({files:[file]})){try{await navigator.share({files:[file]});return}catch(e){if(e.name==='AbortError')return}}
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),4000);

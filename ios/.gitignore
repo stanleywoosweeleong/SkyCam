@@ -1,0 +1,5 @@
+www/
+build/
+SkyCam.xcodeproj/
+Payload/
+*.ipa

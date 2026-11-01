@@ -1,0 +1,41 @@
+name: SkyCam
+options:
+  bundleIdPrefix: io.github.stanleywoosweeleong
+  deploymentTarget:
+    iOS: "17.0"
+targets:
+  SkyCam:
+    type: application
+    platform: iOS
+    sources:
+      - path: SkyCam
+      - path: www
+        type: folder
+        buildPhase: resources
+    info:
+      path: SkyCam/Info.plist
+      properties:
+        CFBundleDisplayName: SkyCam
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        NSCameraUsageDescription: SkyCam uses the camera to photograph the sky.
+        NSPhotoLibraryAddUsageDescription: SkyCam saves your sky photos to the Photos app.
+        NSMotionUsageDescription: SkyCam uses motion sensors for the horizon level.
+        UILaunchScreen:
+          UIColorName: ""
+        UIRequiresFullScreen: true
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UIStatusBarStyle: UIStatusBarStyleLightContent
+        ITSAppUsesNonExemptEncryption: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.stanleywoosweeleong.skycam
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+        TARGETED_DEVICE_FAMILY: "1"
+        SWIFT_VERSION: "5.0"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        MTL_COMPILER_FLAGS: "-fcikernel"
+        MTLLINKER_FLAGS: "-cikernel"
+        CODE_SIGNING_ALLOWED: "NO"
+        CODE_SIGN_IDENTITY: ""

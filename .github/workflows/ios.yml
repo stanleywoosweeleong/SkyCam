@@ -1,0 +1,47 @@
+# Builds an unsigned SkyCam.ipa on GitHub's free macOS machines (free for public repos).
+# Install it on an iPhone with Sideloadly + a free Apple ID — see ios/README.md.
+name: iOS app
+
+on:
+  push:
+    branches: [main]
+    paths: ['ios/**', 'index.html', '.github/workflows/ios.yml']
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Bundle the web app
+        run: |
+          mkdir -p ios/www
+          cp index.html manifest.webmanifest icon.svg icon-192.png icon-512.png apple-touch-icon.png ios/www/
+
+      - name: Generate Xcode project
+        run: |
+          brew install xcodegen
+          cd ios && xcodegen generate
+
+      - name: Build
+        run: |
+          xcodebuild -version
+          xcodebuild -downloadComponent MetalToolchain || true
+          cd ios
+          xcodebuild -project SkyCam.xcodeproj -target SkyCam -configuration Release -sdk iphoneos \
+            SYMROOT="$PWD/build" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" build
+
+      - name: Package IPA
+        run: |
+          cd ios
+          rm -rf Payload && mkdir Payload
+          cp -R build/Release-iphoneos/SkyCam.app Payload/
+          test -f Payload/SkyCam.app/default.metallib
+          zip -qry SkyCam.ipa Payload
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SkyCam-ipa
+          path: ios/SkyCam.ipa
+          retention-days: 30
